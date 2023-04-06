@@ -23,11 +23,20 @@ class Home extends StatelessWidget {
         centerTitle: true,
         actions: <Widget>[
           TextButton.icon(
+            
             icon: const Icon(Icons.person),
             onPressed: () async{
               await _auth.signOut();
             },
-            label: const Text('Sign Out'),
+            label: const Text(
+              'Sign Out',
+              style:TextStyle(
+                color:Colors.white,
+              )
+            ),
+            style:TextButton.styleFrom(
+              foregroundColor: Colors.white,
+            )
           ),
         ],
       ),

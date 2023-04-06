@@ -16,7 +16,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
 
-  // This is the root widget of the app
+  // This is the root widget of the app∞
   final String appTitle = 'FlutterBegins';
   final ThemeData _themeData = ThemeData(
     // Define the default brightness and colors.
