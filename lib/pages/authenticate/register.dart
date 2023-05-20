@@ -25,11 +25,12 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
 
   // text field state
   String email = ""; //"quinny.jtd@gmail.com";
-  int emailCharCount = 0;
   String password = ""; //"Testflutterfire";
+  String userDisplayName = ""; //"Quinny";
+  int emailCharCount = 0; 
   int pwdCharCount = 0;
   String errorUserInfo = "";
-  String userDisplayName = ""; //"Quinny";
+  
 
   @override
   void initState() {

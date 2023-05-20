@@ -29,7 +29,7 @@ class AuthService{
   }
 
   // register with email and pwd
-  Future registerWithEmailPwd(String email, String password, String userName) async{
+  Future<User?> registerWithEmailPwd(String email, String password, String userName) async{
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       //await result.user?.updateDisplayName(userName);
@@ -42,6 +42,17 @@ class AuthService{
       }
       return null;
     } catch(e){
+      print(e);
+      return null;
+    }
+  }
+
+  // Sign in with email and pwd
+  Future<User?> signInWithEmailPassword(String email, String password) async{
+    try {
+      UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return result.user;
+    } catch (e) {
       print(e);
       return null;
     }
