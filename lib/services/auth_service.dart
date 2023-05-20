@@ -6,8 +6,12 @@ class AuthService{
   
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Stream<User?> get user{
+  Stream<User?> get userAuthed{
     return _auth.authStateChanges();
+  }
+
+  Stream<User?> get userChanged{
+    return _auth.userChanges();
   }
 
   // sign in anonymously
@@ -24,6 +28,24 @@ class AuthService{
     
   }
 
+  // register with email and pwd
+  Future registerWithEmailPwd(String email, String password, String userName) async{
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      //await result.user?.updateDisplayName(userName);
+      return result.user;
+    } on FirebaseException catch (e) {
+      if(e.code == 'weak-password'){
+        print('The password provided is too weak.');
+      }else if(e.code == 'email-already-in-use'){
+        print('The account already exists for that email.');
+      }
+      return null;
+    } catch(e){
+      print(e);
+      return null;
+    }
+  }
 
   // sign out
   Future signOut() async{

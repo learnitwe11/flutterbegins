@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<User?>.value(
       initialData: null,
-      value: AuthService().user,
+      //value: AuthService().userAuthed,
+      value: AuthService().userChanged,
       child: MaterialApp(
         title: appTitle,
         //theme: _themeData,

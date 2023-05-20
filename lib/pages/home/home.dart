@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbegins/services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
+//import '../../models/user.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  late String userName = "?";
+  Home({super.key, required this.userName});
+  //Home({super.key});
 
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
@@ -40,6 +47,9 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
+      body: Text(
+        'Welcome $userName',
+      )
     );
         
       
