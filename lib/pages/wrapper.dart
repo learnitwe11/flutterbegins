@@ -15,6 +15,7 @@ class Wrapper extends StatelessWidget {
     if (result == null){
       return const Authenticate();
     }else{
+
       //print(result);
       //return Home(); 
       if (result.displayName != null){
@@ -24,6 +25,7 @@ class Wrapper extends StatelessWidget {
         return Home(userName: 'friend');
       }
       
+
     }
     //Home();
   }

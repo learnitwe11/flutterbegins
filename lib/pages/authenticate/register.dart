@@ -85,6 +85,7 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
           )
         ]
       ),
+
       body: Container(
         padding: const EdgeInsets.symmetric(vertical:20.0, horizontal:50.0),
         child: Form(
@@ -236,6 +237,7 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
           ),
         ),
       ),
+
 
     );
 

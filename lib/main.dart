@@ -21,17 +21,19 @@ class MyApp extends StatelessWidget {
   final ThemeData _themeData = ThemeData(
     // Define the default brightness and colors.
     brightness: Brightness.light,
-    primaryColor: Colors.red,
+    primarySwatch: Colors.blue,
+    canvasColor: Colors.grey,
 
     fontFamily: 'IndieFlower',
-
+    platform: TargetPlatform.android,
+    
     // Define the default 'TextTheme'. Use this to specify the default
     // text styling for headlines, titles, bodies of texts, and more
-    textTheme: const TextTheme(
-      bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-      titleLarge: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-      displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-      )
+    // textTheme: const TextTheme(
+    //   bodyMedium: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+    //   titleLarge: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+    //   displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+    //   )
   );
   
   MyApp({super.key});
@@ -43,8 +45,9 @@ class MyApp extends StatelessWidget {
       //value: AuthService().userAuthed,
       value: AuthService().userChanged,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: appTitle,
-        //theme: _themeData,
+        theme: _themeData,
         home: const Wrapper(),
       ),
     );

@@ -33,7 +33,7 @@ class _SignInState extends State<SignIn> {
 
           ),
         ),
-        centerTitle: true,
+        //centerTitle: true,
         actions: <Widget>[
           TextButton.icon(
             icon: const Icon(Icons.person),
@@ -45,25 +45,30 @@ class _SignInState extends State<SignIn> {
           )
         ]
       ),
-      body: Column(
-        children: <Widget>[
-          const SizedBox(height: 20.0,),
-          TextButton.icon(
-            icon: const Icon(Icons.person_2_sharp),
-            onPressed:() async {
-              dynamic result = await _auth.signInAnonymously();
-              if (result == null){
-                print('error signing in.');
-              }else{
-                print('signed in');
-                print(result);
-              }
-              
-            },
-            label: const Text('Sign in anolymously.'),
-          )
-        ]
-        
+      body: Theme(
+        data: Theme.of(context).copyWith(canvasColor: Colors.yellow,),
+        child: Column(
+          
+          children: <Widget>[
+            const SizedBox(height: 20.0,),
+            TextButton.icon(
+              icon: const Icon(Icons.person_2_sharp),
+              onPressed:() async {
+                dynamic result = await _auth.signInAnonymously();
+                if (result == null){
+                  print('error signing in.');
+                }else{
+                  print('signed in');
+                  print(result);
+                }
+                
+              },
+              label: const Text('Sign in anolymously.'),
+            ),
+            
+          ]
+          
+        ),
       ),
     );
   }

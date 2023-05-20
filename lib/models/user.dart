@@ -2,8 +2,10 @@
 
 class User{
   late String uid;
+
   late String email;
   late String userName;
 
-  User({this.uid = 'unknown'});
+
+  User({this.uid = 'unknown', required this.userName});
 }
