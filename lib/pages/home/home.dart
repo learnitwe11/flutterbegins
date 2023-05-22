@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.lightBlue,
         title: const Text(
           'Welcome',
           style:TextStyle(
@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
             letterSpacing: 4.0,
-            color: Colors.pink,
+            color: Colors.limeAccent,
           )
         ),
         centerTitle: true,

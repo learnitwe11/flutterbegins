@@ -127,7 +127,7 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
                 
                   ),
 
-                const SizedBox(height:10.0),
+                const SizedBox(height:5.0),
                 // email text field
                 TextFormField(
                     initialValue: 'quinny.jtd@gmail.com',
@@ -158,7 +158,7 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
                 
                   ),
                 
-                const SizedBox(height:10.0),
+                const SizedBox(height:5.0),
           
                 //password text field
                 TextFormField(
@@ -196,7 +196,7 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
                     }
                   ),
                 
-                const SizedBox(height:10.0),
+                const SizedBox(height:5.0),
                 
                 // register button
                 ElevatedButton(
@@ -226,11 +226,11 @@ class _RegisterUserState extends State<RegisterUser> with SingleTickerProviderSt
                   },
                 ),
           
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 5.0),
 
               Text(
                 errorUserInfo,
-                style: const TextStyle(color: Colors.red, fontSize: 14.0),
+                style: const TextStyle(color: Colors.red, fontSize: 16.0),
               )
 
               ],

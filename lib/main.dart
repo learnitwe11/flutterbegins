@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     // Define the default brightness and colors.
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
-    canvasColor: Colors.grey,
+    canvasColor: Colors.white,
 
     fontFamily: 'IndieFlower',
     platform: TargetPlatform.android,

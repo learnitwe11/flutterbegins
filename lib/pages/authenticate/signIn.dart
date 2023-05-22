@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutterbegins/services/auth_service.dart';
@@ -48,7 +48,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent[100],
+        backgroundColor: Colors.lime,
         title: const Text(
           'Sign In',
           style: TextStyle(
@@ -74,88 +74,94 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
       ),
       body: Theme(
         data: Theme.of(context).copyWith(canvasColor: Colors.yellow,),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            
-            children: <Widget>[
-              const SizedBox(height: 10.0,),
-              
-              // email
-              TextFormField(
-                initialValue: "quinny.jtd@gmail.com",
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.person),
-                  hintText: "user@example.com",
-                  border: OutlineInputBorder(),
-                ),
-                validator: (val){
-                  if(val == null || val.isEmpty){
-                    return "please enter your email address.";
-                  }else{
-                    return null;
-                  }
-                },
-                onChanged:(value) => setState((){
-                  email = value;
-                }),
-              ),
-              
-              const SizedBox(height: 10.0,),
-
-              // email
-              TextFormField(
-                initialValue: "pwd123",
-                obscureText: true,
-
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.password),
-                  hintText: "password",
-                  border: OutlineInputBorder(),
-                ),
-                validator: (val){
-                  if(val == null || val.isEmpty){
-                    return "please enter password to sign in.";
-                  }else{
-                    return null;
-                  }
-                },
-                onChanged:(value) => setState((){
-                  password = value;
-                }),
-              ),
-              
-              const SizedBox(height: 10.0,),
-              ElevatedButton(
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(
-                    Colors.pink
-                  ),
-                ),
-                child: const Text(
-                    "Sign In",
-                ),
-                onPressed: () async{
-                  if(_formKey.currentState!.validate()){
-                    User? result = await _auth.signInWithEmailPassword(email, password);
-                    if(result == null){
-                      setState(() {
-                        errorUserInfo = "please make sure user credentials are correct.";
-                      });
-                    }
-                  }
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical:15, horizontal: 50),
+          child: Form(
+            key: _formKey,
+            child: SlideTransition(
+              position: _offsetAnimation,
+              child: Column(
+                
+                children: <Widget>[
+                  const SizedBox(height: 5.0,),
                   
-                },
+                  // email
+                  TextFormField(
+                    initialValue: "quinny.jtd@gmail.com",
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: "user@example.com",
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (val){
+                      if(val == null || val.isEmpty){
+                        return "please enter your email address.";
+                      }else{
+                        return null;
+                      }
+                    },
+                    onChanged:(value) => setState((){
+                      email = value;
+                    }),
+                  ),
+                  
+                  const SizedBox(height: 5.0,),
+                    
+                  // email
+                  TextFormField(
+                    initialValue: "pwd123",
+                    obscureText: true,
+                    
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.password),
+                      hintText: "password",
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (val){
+                      if(val == null || val.isEmpty){
+                        return "please enter password to sign in.";
+                      }else{
+                        return null;
+                      }
+                    },
+                    onChanged:(value) => setState((){
+                      password = value;
+                    }),
+                  ),
+                  
+                  const SizedBox(height: 5.0,),
+                  ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                        Colors.lime
+                      ),
+                    ),
+                    child: const Text(
+                        "Sign In",
+                    ),
+                    onPressed: () async{
+                      if(_formKey.currentState!.validate()){
+                        User? result = await _auth.signInWithEmailPassword(email, password);
+                        if(result == null){
+                          setState(() {
+                            errorUserInfo = "please make sure user credentials are correct.";
+                          });
+                        }
+                      }
+                      
+                    },
+                  ),
+                    
+                   Text(
+                    errorUserInfo,
+                    style: const TextStyle(color: Colors.red, fontSize: 16.0),
+                  )
+                    
+                  
+                ]
+                
               ),
-
-               Text(
-                errorUserInfo,
-                style: const TextStyle(color: Colors.red, fontSize: 14.0),
-              )
-
-              
-            ]
-            
+            ),
           ),
         ),
       ),
