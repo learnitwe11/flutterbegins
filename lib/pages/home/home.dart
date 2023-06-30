@@ -49,6 +49,11 @@ class Home extends StatelessWidget {
       ),
       body: Text(
         'Welcome $userName',
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.mic),
       )
     );
         

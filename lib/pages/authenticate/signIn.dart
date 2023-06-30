@@ -21,8 +21,8 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   // user info
-  String email = "quinny.jtd@gmail.com";
-  String password = "Testflutterfire";
+  String email = "";//"quinny.jtd@gmail.com";
+  String password = "";//"Testflutterfire";
   String userName = "";
   String errorUserInfo = "";
 
