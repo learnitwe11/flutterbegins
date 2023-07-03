@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterbegins/services/auth_service.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:record/record.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:provider/provider.dart';
 
@@ -77,21 +76,7 @@ class _HomeState extends State<Home> {
         tooltip: 'Start recording',
         onPressed: ()async{
           final Directory appDocuments = await getApplicationDocumentsDirectory();
-          
-
-          int timestamp = DateTime.now().millisecondsSinceEpoch;
-          String recordFilename = 'savedRecording-$timestamp.m4a';
-          //fileSavingPath = ;
-          setState(()=> fileSavingPath = appDocuments.path.toString() + "/${recordFilename}");
-          final record = Record();
-          // check and request permission
-          if(await record.hasPermission()){
-            print("permission allowed");
-            // start recording
-            // await record.start(
-            //   path:''
-            // )
-          }
+          setState(()=> fileSavingPath = appDocuments.path.toString());
         },
         backgroundColor: Colors.green,
         hoverColor: Colors.amber,
