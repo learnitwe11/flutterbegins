@@ -68,34 +68,19 @@ class _HomeState extends State<Home> {
             
           ),
           const SizedBox(height:6.0),
-          Text(
-            'File can be saved at $fileSavingPath',
+          const Text(
+            'Click the Mic button below for new recording',
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Start recording',
-        onPressed: ()async{
-          final Directory appDocuments = await getApplicationDocumentsDirectory();
-          
-
-          int timestamp = DateTime.now().millisecondsSinceEpoch;
-          String recordFilename = 'savedRecording-$timestamp.m4a';
-          //fileSavingPath = ;
-          setState(()=> fileSavingPath = appDocuments.path.toString() + "/${recordFilename}");
-          final record = Record();
-          // check and request permission
-          if(await record.hasPermission()){
-            print("permission allowed");
-            // start recording
-            // await record.start(
-            //   path:''
-            // )
-          }
+        onPressed: (){
+          Navigator.pushNamed(context, '/createrecording', arguments:<String, String>{'user':widget.userName});
         },
         backgroundColor: Colors.green,
         hoverColor: Colors.amber,
-        child: const Icon(Icons.mic),
+        child: const Icon(Icons.mic_none),
       ),
     );
         

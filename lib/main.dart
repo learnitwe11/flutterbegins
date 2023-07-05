@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'pages/recording/create_recording.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +46,9 @@ class MyApp extends StatelessWidget {
       //value: AuthService().userAuthed,
       value: AuthService().userChanged,
       child: MaterialApp(
+        routes:{
+          '/createrecording':(context) => CreateRecording(),
+        },
         debugShowCheckedModeBanner: false,
         title: appTitle,
         theme: _themeData,
