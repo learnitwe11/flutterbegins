@@ -89,7 +89,9 @@ class _CreateRecordingState extends State<CreateRecording> {
 
               // record button 
               IconButton(
-                onPressed: ()=>{},
+                onPressed: () async {
+                  
+                },
                 icon: const Icon(Icons.mic),
                 color:Colors.red,
 
