@@ -33,7 +33,7 @@ class _CreateRecordingState extends State<CreateRecording> {
         backgroundColor: Colors.lightGreen,
         title: Text(
           'New recording by $user',
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.bold,
             fontSize: 14,
@@ -87,8 +87,13 @@ class _CreateRecordingState extends State<CreateRecording> {
               ),
               const SizedBox(height: 10.0),
 
-              // debug text
+              // record button 
+              IconButton(
+                onPressed: ()=>{},
+                icon: const Icon(Icons.mic),
+                color:Colors.red,
 
+              ),
               // 
             ],
           )
