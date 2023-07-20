@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
+import 'package:flutterbegins/services/record_service.dart';
 
 import '../../services/auth_service.dart';
 
@@ -15,11 +16,12 @@ class CreateRecording extends StatefulWidget {
 class _CreateRecordingState extends State<CreateRecording> {
 
   final AuthService _auth = AuthService();
+  final RecordService _audioRecorder = RecordService();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   Map userData = {};
 
   // text field
-  String title = '';
+  String titleText = '';
   String fileSavingPath = '';
   String user = '';
 
@@ -68,7 +70,9 @@ class _CreateRecordingState extends State<CreateRecording> {
             crossAxisAlignment:CrossAxisAlignment.center,
             children: [
               TextFormField(
-                
+                style: const TextStyle(
+                  fontFamily: 'OpenSans',
+                ),
                 decoration: const InputDecoration(
                   labelText: 'Title',
                   icon: Icon(Icons.subtitles_outlined),
@@ -81,6 +85,7 @@ class _CreateRecordingState extends State<CreateRecording> {
                     return 'Please enter a title for this audio clip';
                     
                   }else{
+                    setState(()=>titleText = value);
                     return null;
                   }
                 }
@@ -91,6 +96,7 @@ class _CreateRecordingState extends State<CreateRecording> {
               IconButton(
                 onPressed: () async {
                   
+                  _audioRecorder.startRecording(user, titleText);
                 },
                 icon: const Icon(Icons.mic),
                 color:Colors.red,
